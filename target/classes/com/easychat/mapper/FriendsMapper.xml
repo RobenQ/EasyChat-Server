@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.easychat.mapper.FriendsMapper">
+	<resultMap type="com.easychat.entity.Friends" id="friendsMap">
+		<result property="userid_1" column="userid_1"/>
+		<result property="userid_2" column="userid_2"/>
+		<result property="friendTime" column="friend_time"/>
+	</resultMap>
+	
+	<select id="selFriend" resultMap="friendsMap">
+		select * from friends where userid_1=#{userid} or userid_2=#{userid};
+	</select>
+</mapper>
